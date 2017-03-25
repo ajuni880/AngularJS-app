@@ -1,0 +1,7 @@
+<div class="announcesContainer">
+  <div class="announce well" ng-repeat="announce in $parent.registredAnnounces | filter: searchBar">
+    <h2>{{announce.getTitle()}}</h2>
+    <p>{{announce.getPrice() | currency}}</p>
+    <p>Published: {{announce.getUploadDate() | date : "MMMM d, y"}}</p>
+  </div>
+</div>

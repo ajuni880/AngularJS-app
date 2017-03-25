@@ -1,0 +1,25 @@
+
+  <table class="table table-striped">
+    <thead>
+      <th>Id</th>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Total Announces</th>
+      <th>Remove</th>
+    </thead>
+
+    <tbody>
+      <tr dir-paginate="userMng in filteredData | itemsPerPage: pageSize"
+                        current-page="currentPage">
+        <td>{{userMng.getId()}}</td>
+        <td>{{userMng.getName()}}</td>
+        <td>{{userMng.getEmail()}}</td>
+        <td>{{registryCtrl.userTotalAnnounces(userMng.getId())}}</td>
+        <td><a href="#" ng-click="registryCtrl.removeUser(userMng.getId())" class="btn btn-danger">X</a></td>
+      </tr>
+    </tbody>
+  </table>
+<div class="text-left" boundary-links="true">
+  <dir-pagination-controls boundary-links="true"
+    template-url="views/templates/dir-pagination-controls.html" ></dir-pagination-controls>
+</div>

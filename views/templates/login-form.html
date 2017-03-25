@@ -1,0 +1,25 @@
+
+<div class="loginContainer">
+  <div class="alert alert-warning" ng-if="!isLogged && (action == 'my-announces'
+  || action == 'publish' )">
+    You must be logged!
+  </div>
+    <div class="formHeader">
+    <span>Log in your account</span>
+  </div>
+  <form name="loginForm" ng-submit="loginForm.$valid && mainCtrl.login()" novalidate>
+
+      <label class="sr-only">Email</label>
+      <input type="email" name="loginemail" class="form-control" ng-model="loginEmail"
+      placeholder="Email" required/>
+      <label class="sr-only">Contraseña</label>
+      <input type="password" name="loginPassword" ng-model="loginPassword"
+      class="form-control" placeholder="Password" required/>
+
+
+    <button type="submit" class="btn btn-success" ng-disabled="loginForm.$invalid">Login</button>
+  </form>
+  <div id="logError" class="hide">
+    User or password are incorrect.
+  </div>
+</div>

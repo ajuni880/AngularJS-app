@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html ng-app="ProductsManager" xmlns="http://www.w3.org/1999/html">
+<head>
+  <meta charset="utf-8">
+  <link rel="shortcut icon" href="">
+  <link href="../../css/bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+  <link rel="stylesheet" type="text/css" href="../../css/index.css" />
+  <!--css-->
+
+  <!-- jQuery-->
+  <script src="../../vendors/jquery/js/jQuery.js" type="text/javascript" xml:space="preserve"></script>
+  <!-- Angular-->
+  <script src="../../vendors/angular/js/angular.min.js" type="text/javascript" xml:space="preserve"></script>
+  <script src="../../vendors/angular/js/angular-file-upload.js" type="text/javascript" xml:space="preserve"></script>
+  <script src="../../vendors/angular/js/angular-i18n/angular-locale_es-es.js" type="text/javascript" xml:space="preserve"></script>
+  <script src="../../vendors/angular/js/ng-currency.js" type="text/javascript" xml:space="preserve"></script>
+  <script src="../../vendors/angular/js/angular-cookies.js" type="text/javascript" xml:space="preserve"></script>
+  <script src="../../vendors/bootstrap/js/ui-bootstrap-tpls-2.3.1.js" type="text/javascript" xml:space="preserve"></script>
+  <script src="../../vendors/angular/js/dirPagination.js" type="text/javascript" xml:space="preserve"></script>
+  <!-- app -->
+
+  <script src="../../js/model/productTypeObj.js" type="text/javascript" xml:space="preserve"></script>
+  <script src="../../js/model/productObj.js" type="text/javascript" xml:space="preserve"></script>
+  <script src="../../js/app.js" type="text/javascript" xml:space="preserve"></script>
+	<script src="../../js/controller/popUp.js" type="text/javascript" xml:space="preserve"></script>
+
+  <title>Products</title>
+
+  <style>
+    .hideBack{
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-inverse navbar-static-top">
+       <div class="container">
+         <div class="navbar-header">
+           <a class="navbar-brand" href="#">Bill</a>
+         </div>
+       </div>
+  </nav>
+     <div class="container" ng-controller="PopUpController as PopUpCtrl">
+       <product-view></product-view>
+       <p>Total {{PopUpCtrl.getPrice()}}</p>
+     </div>
+
+     <footer class="text-center bg-primary">
+       <br/><p>© 2017 DAW-M06, Institut Provençana.</p>
+     </footer>
+
+</body>
+</html>

@@ -1,0 +1,29 @@
+<nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="index.html">
+                    <img src="/shmarket/images/logo.png" alt="" width="120">
+                </a>
+            </div>
+
+            <div class="collapse navbar-collapse pull-right" id="navbar">
+                <ul class="nav navbar-nav">
+                    <li ng-hide="isLogged && role == 'admin'"><a href="#" ng-click="action = 'my-announces'">My announces</a></li>
+                    <li ng-show="!isLogged"><a href="#" ng-click="action = 'login'">Login</a></li>
+                    <li ng-show="isLogged && role == 'user'"><a href="#" ng-click="action = 'my-account'">My account</a></li>
+                    <li ng-show="isLogged && role == 'admin'"><a href="#" ng-click="action = 'dashboard'">Dashboard</a></li>
+                    <li ng-show="isLogged"><a href="#">{{loggedUser.name}}</a></li>
+                    <li ng-show="isLogged"><a href="#" ng-click="mainCtrl.logout()">Logout</a></li>
+
+                </ul>
+
+                <ul class="topbar">
+                    <li><a class="btn btn-danger" href="#" ng-click="action = 'publish'">Publish announce</a></li>
+
+                    <li ng-show="!isLogged"><a class="btn btn-success" href="#" ng-click="action = 'register'">Register</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>

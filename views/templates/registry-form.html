@@ -1,0 +1,28 @@
+
+    <div class="registerContainer">
+        <h2 class="text-center">Create an account</h2>
+        <!-- {{userEntry}} -->
+        <form name="registryMng"  ng-submit="registryMng.$valid && registryCtrl.registerUser()" novalidate>
+            <!--Full name-->
+            <input type="text" name="userName" ng-model="userEntry.name" placeholder="Full name" class="form-control" required>
+            <span ng-show="registryMng.userName.$dirty && registryMng.userName.$error.required">Field Required</span>
+            <span ng-show="registryMng.userName.$error.minlength">Nombre corto</span>
+            <!--Email-->
+            <input type="email" name="email" placeholder="Email" ng-model="userEntry.email" class="form-control"
+            required ng-pattern="/^\w+@[a-zA-Z]{3,}\.[a-zA-Z]{2,5}/">
+            <span ng-show="registryMng.email.$dirty && registryMng.email.$error.required">Required Field</span>
+            <!--Password-->
+            <input type="password" name="pass" placeholder="Contraseña" ng-model="userEntry.password"
+             class="form-control" required ng-minlength="6">
+            <span ng-show="registryMng.pass.$dirty && registryMng.pass.$error.required">Required Field</span>
+            <span ng-show="registryMng.pass.$error.minlength">Weak password</span>
+
+            <input type="password" name="passRepeat" placeholder="Repite tu contraseña" ng-model="password"
+            class="form-control" ng-pattern="{{userEntry.password}}" required>
+            <span ng-show="registryMng.passRepeat.$dirty && registryMng.passRepeat.$error.required">Required Field</span>
+            <br>
+            <button type="submit" class="btn btn-primary" ng-disabled="registryMng.$invalid">
+              {{action == 'register' ? 'Register' : 'Update'}}
+            </button>
+        </form>
+    </div>

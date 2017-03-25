@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="sellBuyApp">
+<head>
+  <meta charset="utf-8">
+  <!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+  Remove this if you use the .htaccess -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Shmarket</title>
+  <link rel="shortcut icon" HREF="images/logo.jpg"/>
+  <meta name="description" content="Online Shop">
+  <meta name="author" content="Junaid - Jorge">
+
+  <!--- css-->
+  <link rel="stylesheet" type="text/css" href="vendors/bootstrap/css/bootstrap.min.css" />
+  <link rel="stylesheet" type="text/css" href="css/reset.css" />
+  <link rel="stylesheet" type="text/css" href="css/index.css" />
+  <link rel="stylesheet" type="text/css" href="css/registro.css" />
+  <link rel="stylesheet" type="text/css" href="css/login.css" />
+  <!-- jQuery-->
+  <script src="vendors/jquery/js/jQuery.js" type="text/javascript" xml:space="preserve"></script>
+
+
+  <!-- Angular-->
+  <script src="vendors/angular/js/angular.min.js" type="text/javascript" xml:space="preserve"></script>
+  <script src="vendors/angular/js/angular-file-upload.js" type="text/javascript" xml:space="preserve"></script>
+  <script src="vendors/angular/js/angular-i18n/angular-locale_es-es.js" type="text/javascript" xml:space="preserve"></script>
+  <script src="vendors/angular/js/ng-currency.js" type="text/javascript" xml:space="preserve"></script>
+  <script src="vendors/angular/js/angular-cookies.js" type="text/javascript" xml:space="preserve"></script>
+  <script src="vendors/bootstrap/js/ui-bootstrap-tpls-2.3.1.js" type="text/javascript" xml:space="preserve"></script>
+  <script src="vendors/angular/js/dirPagination.js" type="text/javascript" xml:space="preserve"></script>
+	<!-- app -->
+  <script src="js/app.js" type="text/javascript" xml:space="preserve"></script>
+  <script src="js/model/userObj.js" type="text/javascript" xml:space="preserve"></script>
+  <script src="js/model/categoryObj.js" type="text/javascript" xml:space="preserve"></script>
+  <script src="js/model/announceObj.js" type="text/javascript" xml:space="preserve"></script>
+  <script src="js/model/valorationObj.js" type="text/javascript" xml:space="preserve"></script>
+  <script src="js/controller/mainController.js" type="text/javascript" xml:space="preserve"></script>
+	<script src="js/controller/registryController.js" type="text/javascript" xml:space="preserve"></script>
+  <script src="js/controller/announceController.js" type="text/javascript" xml:space="preserve"></script>
+
+</head>
+<body ng-controller="MainController as mainCtrl">
+
+  <header>
+    <navbar-template></navbar-template>
+  </header>
+
+  <div class="container">
+
+
+    <search-form ng-show="action=='init'"></search-form>
+
+    <main>
+      <section>
+
+        <div ng-show="action == 'login' || !isLogged && action == 'my-announces'
+         || !isLogged && action == 'publish'">
+          <login-form></login-form>
+        </div>
+
+        <div ng-show="isLogged && action=='dashboard'">
+          <admin-dashboard></admin-dashboard>
+        </div>
+
+        <div ng-controller="RegistryController as registryCtrl">
+          <div  ng-show="$parent.action == 'register' || $parent.action == 'my-account' && isLogged">
+            <registry-form></registry-form>
+          </div>
+
+          <div class="" ng-show="$parent.adminAction == 'listUsers'">
+              <show-user-info></show-user-info>
+          </div>
+
+        </div>
+
+        <div ng-controller="AnnounceController as announceCtrl">
+
+          <div ng-show="action == 'init'">
+              <announce-view></announce-view>
+          </div>
+
+          <div class="" ng-show="$parent.adminAction == 'listAnnounces'">
+              <show-announce-info></show-announce-info>
+          </div>
+
+          <div ng-show="action == 'my-announces' && isLogged">
+            <user-announces-view></user-announces-view>
+          </div>
+
+          <div ng-show="isLogged && action=='publish' || isLogged && action=='modify'">
+              <announce-form ></announce-form>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+
+</body>
+</html>

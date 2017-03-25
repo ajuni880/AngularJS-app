@@ -1,0 +1,42 @@
+<div ng-show=!valid>
+  <label for="fields">* Campos requeridos</label><br><br>
+    <form name="form"  ng-submit="form.$valid && announceCtrl.createAnnounce()" novalidate>
+    <!--Announcement title-->
+      <div class="form-group col-xs-12">
+          <label  for="name">Título del anuncio * </label>
+          <input type="text" class="form-control" ng-model="announce.title" ng-pattern="/[a-zA-Z0-9]{5,}$/" name="title" required >
+          <span ng-show="form.title.$touched && form.title.$error.required">Campo requerido</span>
+      </div>
+      <!--Category-->
+    <div class="form-group col-md-12">
+      <label for="category">Select your category*</label></br>
+      <select class="form-control" ng-model="announce.categoryId" ng-options="category.getName() for category in categories track by category.id" required>
+      </select>
+    </div>
+      <!--Price-->
+      <div class="form-group col-xs-12">
+        <br><label for="product-price">Precio *</label>
+        <input class="form-control"  type="number" ng-model="announce.price" ng-pattern="/^[0-9]+(\.[0-9]{1,2})?$/" placeholder="precio"  min="1" step="1" required/>
+      </div>
+      <!--To upload photo-->
+      <div class="form-group col-xs-12">
+        <br/><label for="photos">Upload photo *</label><input type="file" name="pic" accept="image/* ">
+      </div>
+        <br/>
+        <div class="form-group col-xs-12">
+        <button type="submit" class="btn btn-primary pull-right" ng-click="valid=true"  style="width:100px;">Publish</button>
+        <button type="button" class="btn btn-danger pull-left" ng-click="$parent.action=init" >Back</button>
+        </div>
+      <br>
+  </form>
+</div>
+<div ng-if="valid">
+  <br>
+  <p>Confirmar canvios</p>
+  <p>Titulo del anuncio : {{announce.title}}</p>
+  <p>Categoria : {{announce.categoryId}}</p>
+  <p>Precio: {{announce.price}}</p>
+  <button type="submit" class="btn btn-primary pull-right" ng-click="announceCtrl.init()"  style="width:100px;">Confirm</button>
+  <button type="button" class="btn btn-danger pull-left" ng-click="announceCtrl.backForm()" >Back</button>
+  <br>
+</div>

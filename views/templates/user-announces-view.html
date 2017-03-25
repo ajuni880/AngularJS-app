@@ -1,0 +1,12 @@
+<div class="announcesContainer">
+  <div class="announce" ng-repeat="announce in userAnnounces">
+    <p>Title: {{announce.getTitle()}}</p>
+    <p>Price: {{announce.getPrice() | currency}}</p>
+    <p>Published: {{announce.getUploadDate() | date : "MMMM d, y"}}</p>
+    <a href="#" ng-click="announceCtrl.remove($index,announce.getId())" class="btn btn-danger">X</a>
+    <a href="#" ng-click="announceCtrl.modifyAnnounce($index,announce.getId())" class="btn btn-primary">Modify</a>
+  </div>
+</div>
+<div ng-show="!userAnnounces.length">
+  <p class="alert alert-info">No announces uploaded yet!</p>
+</div>

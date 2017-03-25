@@ -1,0 +1,111 @@
+
+.container {
+	margin: 0 auto;
+	padding: 0 20px;
+	width: 1050px;
+	max-width: 100%;
+}
+/*-----------------------------------------------
+- CONTAINS THE REGISTER, PUBLISH ANNOUNCEMENT  --
+------------------------------------------------*/
+h2{
+	font-size: 1.2;
+	font-weight: bold;
+}
+.topbar {
+	float: right;
+	margin-top: .3em;
+}
+
+.topbar li {
+	float: left;
+	margin-left: 1.5em;
+	margin-top: .4em;
+}
+
+.topbar a {
+	display: block;
+	text-align: center;
+	text-decoration: none;
+	padding: .7em;
+}
+
+/*-----------------------------------------------
+--------------- NAVBAR -------------------------
+------------------------------------------------*/
+.navbar-brand {
+	margin-top: -0.4em;
+	-webkit-transition: all 0.4s ease-in;
+	transition: all 0.4s ease-in;
+}
+
+.navbar-default {
+	background-color: rgb(121, 144, 141);
+	border-radius: 0;
+	border: 0;
+	padding: 1em;
+	box-shadow: 0px 3px 3px #8c8c8c;
+	transition: 0.4s all ease-in;
+}
+/*Links that are in the navbar*/
+
+.navbar-default .navbar-nav li  a {
+	color: #fff;
+	margin-top: 10px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+.navbar-default .navbar-nav li  a:hover {
+	color: #000;
+	background-color: #fff;
+	-webkit-transition: all .4s ease-in;
+	transition: all .4s ease-in;
+	border-radius: 3px;
+}
+
+.navbar-brand:hover {
+	-ms-transform: translateY(-3px);
+ /* IE 9 */
+	-webkit-transform: translateY(-3px);
+ /* Chrome, Safari, Opera */
+	transform: translateY(-3px);
+}
+
+input.ng-invalid.ng-dirty{
+      border-left: 4px solid red;
+}
+input.ng-valid.ng-dirty{
+      border-left: 4px solid green;
+}
+
+.announcesContainer{
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+
+.announce{
+	border: 1px solid #ddd;
+	width: calc(100% / 3 - 5px);
+	padding: 10px;
+	margin-bottom: 10px;
+}
+
+.announce *{
+	padding: 5px;
+}
+
+.error{
+	visibility: hidden;
+	opacity: 0;
+	background-color: lightblue;
+	transition: all 0.5s ease-in;
+	padding: 5px;
+	width: 100px;
+}
+.showError{
+	visibility: visible;
+	opacity: 1;
+}

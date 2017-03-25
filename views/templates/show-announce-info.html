@@ -1,0 +1,23 @@
+
+  <table class="table table-striped">
+    <thead>
+      <th>Id</th>
+      <th>Title</th>
+      <th>UserId</th>
+    </thead>
+
+    <tbody>
+      <tr dir-paginate="announce in filteredData | itemsPerPage: pageSize"
+                        current-page="currentPage">
+        <td>{{announce.getId()}}</td>
+        <td>{{announce.getTitle()}}</td>
+        <td>{{announce.getUserId()}}</td>
+      </tr>
+    </tbody>
+
+  </table>
+
+<div class="text-left" boundary-links="true">
+  <dir-pagination-controls boundary-links="true"
+    template-url="views/templates/dir-pagination-controls.html" ></dir-pagination-controls>
+</div>
