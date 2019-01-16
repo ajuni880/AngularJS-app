@@ -1,1 +1,2 @@
-# DAWM6DateCalculator# Pt3.4
+### A project to learn the basics of AngularJS. 
+### Simulates an online shop
